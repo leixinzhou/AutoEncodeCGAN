@@ -130,6 +130,7 @@ for epoch in range(train_epoch):
         z_ = torch.randn((mini_batch, 100)).view(-1, 100, 1, 1)
         y_ = (torch.rand(mini_batch, 1) * 10).type(torch.LongTensor).squeeze()
         y_label_ = onehot[y_]
+        print(onehot.size(), y_label_.size(), y_.size())
         y_fill_ = fill[y_]
         z_, y_label_, y_fill_ = Variable(z_.cuda()), Variable(y_label_.cuda()), Variable(y_fill_.cuda())
 
